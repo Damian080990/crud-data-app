@@ -2,6 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Fragment, useState } from "react";
 import { createNewCoreData } from "../helpers";
 import { NavLink } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -27,6 +28,8 @@ export const AddNewData = () => {
         }
     });
 
+    const navigate = useNavigate();
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -42,9 +45,10 @@ export const AddNewData = () => {
             created_date: createdDateValue,
         }
 
-        console.log("Sending data:", core); // Dodaj to, aby zobaczyć, co jest wysyłane
+        console.log("Sending data:", core); // co jest wysyłane
 
         mutation.mutate(core);
+        navigate("/"); //todo przekierowanie na stronę główną po wciśnięciu submit button
 
         // Resetowanie formularza
         setCoreIdValue("");
@@ -58,7 +62,7 @@ export const AddNewData = () => {
         setCreatedDateValue(Date);
     }
 
-    return (//todo
+    return (
         <Fragment>
             <nav className="navigate">
                 <NavLink
