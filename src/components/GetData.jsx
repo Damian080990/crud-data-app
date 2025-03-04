@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchingCoresData } from "../helpers";
 import { Fragment } from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 
 
 export const GetData = () => {
@@ -42,6 +42,8 @@ export const GetData = () => {
                             <th scope="col" className="border border-gray-300  px-8 py-5 text-center font-mono text-xl">Quantity of Product Sent</th>
                             <th scope="col" className="border border-gray-300  px-8 py-5 text-center font-mono text-xl">Invoice ID</th>
                             <th scope="col" className="border border-gray-300  px-8 py-5 text-center font-mono text-xl">Date</th>
+                            <th scope="col" className="border border-gray-300  px-8 py-5 text-center font-mono text-xl">EDIT</th>
+                            <th scope="col" className="border border-gray-300  px-8 py-5 text-center font-mono text-xl">DELETE</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,6 +59,12 @@ export const GetData = () => {
                                 <td className="border border-gray-300  px-8 py-5 text-center font-mono text-base outline-none " >{core.quantityProductsSent}</td>
                                 <td className="border border-gray-300  px-8 py-5 text-center font-mono text-base outline-none " >{core.documentID}</td>
                                 <td className="border border-gray-300  px-8 py-5 text-center font-mono text-base outline-none " >{core.created_date}</td>
+                                <td> <Link to={`/edit/${core._id}`}>
+                                    <button>EDIT</button>
+                                </Link> </td>
+                                <td> <Link to={`/delete/${core._id}`}>
+                                    <button>DELETE</button>
+                                </Link> </td>
                             </tr>
 
                         ))}

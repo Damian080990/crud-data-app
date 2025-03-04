@@ -24,6 +24,10 @@ body {
     align-items: center;
 }
 
+.form {
+    padding: 30px 0 45px 0;
+}
+
 .navigate {
     display: flex;
     width: 100%;
@@ -36,4 +40,8 @@ body {
 
 .navigate .padding {
     padding: 15px;
+}
+
+.inputClass {
+    padding: 5px 10px 5px 10px;
 }

@@ -21,7 +21,7 @@ export const AddNewData = () => {
     const mutation = useMutation({
         mutationFn: createNewCoreData,
         onSuccess: () => {
-            queryClient.invalidateQueries(['cores']);
+            queryClient.invalidateQueries(['cores']); // Odświeżenie listy po dodaniu
         },
         onError: (error) => {
             console.error("Error:", error);
@@ -42,7 +42,7 @@ export const AddNewData = () => {
             manufacturer: manufacturerValue,
             quantityProductsSent: quantityProductsSentValue,
             documentID: documentIdValue,
-            created_date: createdDateValue,
+            created_date: createdDateValue ? new Date(createdDateValue).toISOString() : null,
         }
 
         console.log("Sending data:", core); // co jest wysyłane
@@ -61,7 +61,6 @@ export const AddNewData = () => {
         setDocumentIdValue("");
         setCreatedDateValue(Date);
     }
-
     return (
         <Fragment>
             <nav className="navigate">
@@ -77,47 +76,47 @@ export const AddNewData = () => {
                 </NavLink>
             </nav>
             <div className="flex justify-center items-center ">
-                <div className="content w-full max-w-lg bg-orange-100 border border-gray-300 shadow-lg rounded-xl">
+                <div className="content form w-full max-w-lg bg-orange-100 border border-gray-300 shadow-lg rounded-xl">
                     <form onSubmit={handleSubmit}>
                         <h2 className="text-2xl font-bold text-center text-gray-800">Add new element</h2>
 
                         <div className="flex flex-col">
                             <label className="text-gray-700 font-medium">Core ID: {" "} </label>
-                            <input className="bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setCoreIdValue(e.target.value)} value={coreIdValue} />
+                            <input className="inputClass bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setCoreIdValue(e.target.value)} value={coreIdValue} />
                         </div>
 
                         <div className="flex flex-col">
                             <label className="text-gray-700 font-medium">Client ID: {" "} </label>
-                            <input className="bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setClientIdValue(e.target.value)} value={clientIdValue} /></div>
+                            <input className="inputClass bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setClientIdValue(e.target.value)} value={clientIdValue} /></div>
 
                         <div className="flex flex-col">
                             <label className="text-gray-700 font-medium">Full Name: {" "} </label>
-                            <input className="bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setFullNameValue(e.target.value)} value={fullNameValue} /></div>
+                            <input className="inputClass bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setFullNameValue(e.target.value)} value={fullNameValue} /></div>
 
                         <div className="flex flex-col">
                             <label className="text-gray-700 font-medium">Short Name: {" "} </label>
-                            <input className="bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setShortNameValue(e.target.value)} value={shortNameValue} /></div>
+                            <input className="inputClass bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setShortNameValue(e.target.value)} value={shortNameValue} /></div>
 
                         <div className="flex flex-col">
                             <label className="text-gray-700 font-medium">Product Index: {" "} </label>
-                            <input className="bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setProductIndexValue(e.target.value)} value={productIndexValue} /> </div>
+                            <input className="inputClass bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setProductIndexValue(e.target.value)} value={productIndexValue} /> </div>
 
                         <div className="flex flex-col">
                             <label className="text-gray-700 font-medium">Manufacturer: {" "} </label>
-                            <input className="bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setManufacturerValue(e.target.value)} value={manufacturerValue} /> </div>
+                            <input className="inputClass bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setManufacturerValue(e.target.value)} value={manufacturerValue} /> </div>
 
                         <div className="flex flex-col">
                             <label className="text-gray-700 font-medium">Quantity of Products Sent: {" "} </label>
-                            <input className="bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setQuantityProductsSentValue(e.target.value)} value={quantityProductsSentValue} /> </div>
+                            <input className="inputClass bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setQuantityProductsSentValue(e.target.value)} value={quantityProductsSentValue} /> </div>
 
                         <div className="flex flex-col">
                             <label className="text-gray-700 font-medium">Document ID: {" "} </label>
-                            <input className="bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setDocumentIdValue(e.target.value)} value={documentIdValue} /></div>
+                            <input className="inputClass bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setDocumentIdValue(e.target.value)} value={documentIdValue} /></div>
                         <div className="flex flex-col">
                             <label className="text-gray-700 font-medium">Created Date: {" "} </label>
-                            <input className="bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" type="date" onChange={(e) => setCreatedDateValue(e.target.value)} value={createdDateValue} /></div>
+                            <input className="inputClass bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" type="date" onChange={(e) => setCreatedDateValue(e.target.value)} value={createdDateValue} /></div>
 
-                        <button type="submit" className="w-full py-2 px-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-lg shadow-md transition-all">Submit</button>
+                        <button type="submit" className="inputClass w-full py-2 px-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-lg shadow-md transition-all">Submit</button>
                     </form>
                 </div>
             </div>
