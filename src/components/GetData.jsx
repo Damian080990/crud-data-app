@@ -2,7 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchingCoresData } from "../helpers";
 import { Fragment } from "react";
 import { Link, NavLink } from "react-router";
-
+import { FaEdit } from "react-icons/fa";
+import { CiEdit } from "react-icons/ci";
+import { MdAutoDelete } from "react-icons/md";
+import { IoTrashBinOutline } from "react-icons/io5";
 
 export const GetData = () => {
     const { data, isLoading, error } = useQuery({ queryKey: ['cores'], queryFn: fetchingCoresData });
@@ -33,7 +36,7 @@ export const GetData = () => {
                     </caption>
                     <thead>
                         <tr className="bg-orange-200">
-                            <th scope="col" className="border border-gray-300  px-8 py-5 text-center font-mono text-xl">Cores ID</th>
+                            <th scope="col" className="border border-gray-300  px-8 py-5 text-center font-mono text-xl">Core ID</th>
                             <th scope="col" className="border border-gray-300  px-8 py-5 text-center font-mono text-xl">Client ID</th>
                             <th scope="col" className="border border-gray-300  px-8 py-5 text-center font-mono text-xl">Full Name</th>
                             <th scope="col" className="border border-gray-300  px-8 py-5 text-center font-mono text-xl">Short Name</th>
@@ -42,8 +45,8 @@ export const GetData = () => {
                             <th scope="col" className="border border-gray-300  px-8 py-5 text-center font-mono text-xl">Quantity of Product Sent</th>
                             <th scope="col" className="border border-gray-300  px-8 py-5 text-center font-mono text-xl">Invoice ID</th>
                             <th scope="col" className="border border-gray-300  px-8 py-5 text-center font-mono text-xl">Date</th>
-                            <th scope="col" className="border border-gray-300  px-8 py-5 text-center font-mono text-xl">EDIT</th>
-                            <th scope="col" className="border border-gray-300  px-8 py-5 text-center font-mono text-xl">DELETE</th>
+                            <th scope="col" className="border border-gray-300  px-8 py-5 text-center font-mono text-xl"><FaEdit className="text-2xl" /></th>
+                            <th scope="col" className="border border-gray-300  px-8 py-5 text-center font-mono text-xl"><MdAutoDelete className="text-2xl" /></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,10 +63,10 @@ export const GetData = () => {
                                 <td className="border border-gray-300  px-8 py-5 text-center font-mono text-base outline-none " >{core.documentID}</td>
                                 <td className="border border-gray-300  px-8 py-5 text-center font-mono text-base outline-none " >{core.created_date}</td>
                                 <td> <Link to={`/edit/${core._id}`}>
-                                    <button>EDIT</button>
+                                    <CiEdit className="text-2xl" />
                                 </Link> </td>
                                 <td> <Link to={`/delete/${core._id}`}>
-                                    <button>DELETE</button>
+                                    <IoTrashBinOutline className="text-xl" />
                                 </Link> </td>
                             </tr>
 

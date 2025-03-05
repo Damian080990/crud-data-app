@@ -41,6 +41,7 @@ export const EditData = () => {
 
 
     useEffect(() => {
+        //pobranie wartości do pol z formularza - [data] - wazne, zeby nie bylo infiniteloop
         if (data) {
             setCoreIdEditedValue(data?.coresID || "");
             setClientIdEditedValue(data?.clientID || "");
