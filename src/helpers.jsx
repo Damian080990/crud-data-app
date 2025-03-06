@@ -12,8 +12,8 @@ export const createNewCoreData = async (core) => {
 };
 
 //DELETE
-export const deleteCoreData = async (id, core) => {
-    const { data } = await axios.delete(`http://localhost:3000/core/${id}`, core);
+export const deleteCoreData = async ({ id }) => {
+    const { data } = await axios.delete(`http://localhost:3000/core/${id}`);
     return data;
 };
 

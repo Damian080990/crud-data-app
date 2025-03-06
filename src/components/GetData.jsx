@@ -1,14 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchingCoresData } from "../helpers";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { FaEdit } from "react-icons/fa";
 import { CiEdit } from "react-icons/ci";
 import { MdAutoDelete } from "react-icons/md";
 import { IoTrashBinOutline } from "react-icons/io5";
+import { DeleteData } from "./DeleteData";
 
 export const GetData = () => {
     const { data, isLoading, error } = useQuery({ queryKey: ['cores'], queryFn: fetchingCoresData });
+    const [selectedItem, setSelectedItem] = useState(null)
 
     if (isLoading) return <p>Loading...</p> //TODO
     if (error) return <p>Error: {error.message}</p> //TODO
@@ -65,15 +67,23 @@ export const GetData = () => {
                                 <td> <Link to={`/edit/${core._id}`}>
                                     <CiEdit className="text-2xl" />
                                 </Link> </td>
-                                <td> <Link to={`/delete/${core._id}`}>
-                                    <IoTrashBinOutline className="text-xl" />
-                                </Link> </td>
+                                <td>
+                                    <button className="text-red-500 hover:text-red-700" onClick={() => setSelectedItem({ id: core._id, coresID: core.coresID, fullName: core.fullName })}>
+                                        <IoTrashBinOutline className="text-xl" />
+                                    </button>
+                                </td>
                             </tr>
 
                         ))}
 
                     </tbody>
                 </table>
+                {/* Modal wyświetlany warunkowo */}
+                {selectedItem && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <DeleteData id={selectedItem.id} coresID={selectedItem.coresID} fullName={selectedItem.fullName} onClose={() => setSelectedItem(null)} />
+                    </div>
+                )}
             </div>
         </Fragment>
     )

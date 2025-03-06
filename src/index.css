@@ -46,3 +46,11 @@ body {
 .inputClass {
     padding: 5px 10px 5px 10px;
 }
+
+.show {
+    display: flex;
+}
+
+.hidden {
+    display: none;
+}
