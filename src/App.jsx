@@ -3,7 +3,7 @@ import { GetData } from "./components/GetData";
 import { BrowserRouter, Route, Routes } from "react-router";
 import { AddNewData } from "./components/AddNewData";
 import { EditData } from "./components/EditData";
-import { DeleteData } from "./components/DeleteData";
+import { PrintData } from "./components/PrintData";
 function App() {
   // zarządza stanem zapytań, pamięcią podręczną i ich automatycznym odświeżaniem
   const queryClient = new QueryClient();
@@ -16,7 +16,7 @@ function App() {
           <Route path="/" element={<GetData />} />
           <Route path="AddNewData" element={<AddNewData />} />
           <Route path="/edit/:id" element={<EditData />} />
-          <Route path="/delete/:id" element={<DeleteData />} />
+          <Route path="/print/:id" element={<PrintData />} />
         </Routes>
       </QueryClientProvider>
     </BrowserRouter>

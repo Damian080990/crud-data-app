@@ -48,7 +48,7 @@ export const AddNewData = () => {
         console.log("Sending data:", core); // co jest wysyłane
 
         mutation.mutate(core);
-        navigate("/"); //todo przekierowanie na stronę główną po wciśnięciu submit button
+        navigate("/");
 
         // Resetowanie formularza
         setCoreIdValue("");
@@ -63,12 +63,12 @@ export const AddNewData = () => {
     }
     return (
         <Fragment>
-            <nav className="navigate">
+            <nav className="navigate flex p-8 w-full justify-center items-center mb-6">
                 <NavLink
                     to="/"
                     end
                     className={({ isActive }) =>
-                        `padding rounded-lg font-bold transition-all shadow-md ${isActive ? "bg-orange-500 text-white" : "bg-white text-orange-500 border border-orange-500 hover:bg-orange-500 hover:text-white"
+                        `p-5 rounded-lg font-bold transition-all shadow-md ${isActive ? "bg-orange-500 text-white" : "bg-white text-orange-500 border border-orange-500 hover:bg-orange-500 hover:text-white"
                         }`
                     }
                 >
@@ -76,47 +76,47 @@ export const AddNewData = () => {
                 </NavLink>
             </nav>
             <div className="flex justify-center items-center ">
-                <div className="content form w-full max-w-lg bg-orange-100 border border-gray-300 shadow-lg rounded-xl">
+                <div className="content py-10 w-full max-w-lg bg-orange-100 border border-gray-300 shadow-lg rounded-xl">
                     <form onSubmit={handleSubmit}>
-                        <h2 className="text-2xl font-bold text-center text-gray-800">Add new element</h2>
+                        <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">Add new element</h2>
 
-                        <div className="flex flex-col">
+                        <div className="flex flex-col mb-2">
                             <label className="text-gray-700 font-medium">Core ID: {" "} </label>
-                            <input className="inputClass bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setCoreIdValue(e.target.value)} value={coreIdValue} />
+                            <input className="py-2 px-2 bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setCoreIdValue(e.target.value)} value={coreIdValue} />
                         </div>
 
-                        <div className="flex flex-col">
+                        <div className="flex flex-col mb-2">
                             <label className="text-gray-700 font-medium">Client ID: {" "} </label>
-                            <input className="inputClass bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setClientIdValue(e.target.value)} value={clientIdValue} /></div>
+                            <input className="py-2 px-2 bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setClientIdValue(e.target.value)} value={clientIdValue} /></div>
 
-                        <div className="flex flex-col">
+                        <div className="flex flex-col mb-2">
                             <label className="text-gray-700 font-medium">Full Name: {" "} </label>
-                            <input className="inputClass bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setFullNameValue(e.target.value)} value={fullNameValue} /></div>
+                            <input className="py-2 px-2 bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setFullNameValue(e.target.value)} value={fullNameValue} /></div>
 
-                        <div className="flex flex-col">
+                        <div className="flex flex-col mb-2">
                             <label className="text-gray-700 font-medium">Short Name: {" "} </label>
-                            <input className="inputClass bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setShortNameValue(e.target.value)} value={shortNameValue} /></div>
+                            <input className="py-2 px-2 bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setShortNameValue(e.target.value)} value={shortNameValue} /></div>
 
-                        <div className="flex flex-col">
+                        <div className="flex flex-col mb-2">
                             <label className="text-gray-700 font-medium">Product Index: {" "} </label>
-                            <input className="inputClass bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setProductIndexValue(e.target.value)} value={productIndexValue} /> </div>
+                            <input className="py-2 px-2 bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setProductIndexValue(e.target.value)} value={productIndexValue} /> </div>
 
-                        <div className="flex flex-col">
+                        <div className="flex flex-col mb-2">
                             <label className="text-gray-700 font-medium">Manufacturer: {" "} </label>
-                            <input className="inputClass bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setManufacturerValue(e.target.value)} value={manufacturerValue} /> </div>
+                            <input className="py-2 px-2 bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setManufacturerValue(e.target.value)} value={manufacturerValue} /> </div>
 
-                        <div className="flex flex-col">
+                        <div className="flex flex-col mb-2">
                             <label className="text-gray-700 font-medium">Quantity of Products Sent: {" "} </label>
-                            <input className="inputClass bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setQuantityProductsSentValue(e.target.value)} value={quantityProductsSentValue} /> </div>
+                            <input className="py-2 px-2 bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setQuantityProductsSentValue(e.target.value)} value={quantityProductsSentValue} /> </div>
 
-                        <div className="flex flex-col">
+                        <div className="flex flex-col mb-2">
                             <label className="text-gray-700 font-medium">Document ID: {" "} </label>
-                            <input className="inputClass bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setDocumentIdValue(e.target.value)} value={documentIdValue} /></div>
-                        <div className="flex flex-col">
+                            <input className="py-2 px-2 bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" onChange={(e) => setDocumentIdValue(e.target.value)} value={documentIdValue} /></div>
+                        <div className="flex flex-col mb-2">
                             <label className="text-gray-700 font-medium">Created Date: {" "} </label>
-                            <input className="inputClass bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" type="date" onChange={(e) => setCreatedDateValue(e.target.value)} value={createdDateValue} /></div>
+                            <input className="py-2 px-2 bg-orange-50 w-3xs p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500" type="date" onChange={(e) => setCreatedDateValue(e.target.value)} value={createdDateValue} /></div>
 
-                        <button type="submit" className="inputClass w-full py-2 px-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-lg shadow-md transition-all">Submit</button>
+                        <button type="submit" className=" mt-4 py-2 px-2 w-full py-2 px-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-lg shadow-md transition-all">Submit</button>
                     </form>
                 </div>
             </div>

@@ -24,7 +24,8 @@ export const fetchCoreById = async (id) => {
 };
 
 // PUT
-export const updateCoreData = async ({ id, updatedData }) => {
-    const { data } = await axios.put(`http://localhost:3000/core/${id}`, updatedData);
+export const updateCoreData = async ({ id, core }) => {
+    console.log(`Aktualizuję rekord o ID: ${id}`); // Debugowanie
+    const { data } = await axios.put(`http://localhost:3000/core/${id}`, core);
     return data;
 };

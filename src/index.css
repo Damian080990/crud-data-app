@@ -3,8 +3,6 @@
 
 * {
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
 }
 
 body {
@@ -25,32 +23,10 @@ body {
     align-items: center;
 }
 
-.form {
-    padding: 30px 0 45px 0;
-}
+
 
 .navigate {
-    display: flex;
-    width: 100%;
+
     background-color: #f0e6d2;
-    padding: 30px;
-    justify-content: center;
-    align-items: center;
-    margin: 0 0 15px 0;
-}
 
-.navigate .padding {
-    padding: 15px;
-}
-
-.inputClass {
-    padding: 5px 10px 5px 10px;
-}
-
-.show {
-    display: flex;
-}
-
-.hidden {
-    display: none;
 }
