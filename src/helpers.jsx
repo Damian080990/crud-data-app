@@ -16,7 +16,7 @@ export const createNewCoreData = async (core) => {
 
 //DELETE
 export const deleteCoreData = async ({ id }) => {
-    const { data } = await axios.delete(`${API_URL}core/${id}`);
+    const { data } = await axios.delete(`${API_URL}/core/${id}`);
     return data;
 };
 
