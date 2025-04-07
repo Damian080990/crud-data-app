@@ -9,13 +9,15 @@ import { IoTrashBinOutline } from "react-icons/io5";
 import { BsPrinterFill } from "react-icons/bs";
 import { SlPrinter } from "react-icons/sl";
 import { DeleteData } from "./DeleteData";
+import { Loading } from "./Loading";
+
 
 
 export const GetData = () => {
     const { data, isLoading, error } = useQuery({ queryKey: ['cores'], queryFn: fetchingCoresData });
     const [selectedItem, setSelectedItem] = useState(null)
 
-    if (isLoading) return <p>Loading...</p> //TODO
+    if (isLoading) return <Loading /> //TODO
     if (error) return <p>Error: {error.message}</p> //TODO
 
     return (
