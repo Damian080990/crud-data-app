@@ -3,6 +3,7 @@ import { Fragment, useRef } from "react";
 import { NavLink, useParams } from "react-router";
 import { useReactToPrint } from "react-to-print";
 import { fetchCoreById } from "../helpers";
+import { Loading } from "./Loading";
 
 export const PrintData = () => {
   const { id } = useParams();
@@ -16,7 +17,7 @@ export const PrintData = () => {
     enabled: !!id, // Zapytanie wykona się tylko, jeśli id istnieje
   });
 
-  if (isLoading) return <p>Loading...</p> //TODO
+  if (isLoading) return <p><Loading /></p> //TODO
   if (error) return <p>Error: {error.message}</p> //TODO
 
   return (
